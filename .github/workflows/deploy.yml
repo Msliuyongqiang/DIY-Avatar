@@ -1,31 +1,41 @@
-name: Deploy to GitHub Pages
+name: Deploy Vue Vite Project to GitHub Pages
 
+# 监听 admin 分支的 push 事件
 on:
   push:
     branches:
-      - admin   # 监听 admin 分支推送
+      - admin
 
 jobs:
-  build-deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      # 1️⃣ 拉取代码
+      - name: Checkout repository
         uses: actions/checkout@v3
 
+      # 2️⃣ 设置 Node.js 环境
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
+      # 3️⃣ 安装依赖
       - name: Install dependencies
         run: npm ci
 
+      # 4️⃣ 构建项目（生成 dist）
       - name: Build project
         run: npm run build
 
+      # 5️⃣ 自动生成 CNAME 文件（自定义域名）
+      - name: Add CNAME for custom domain
+        run: echo "DIY_AVatar.com" > dist/CNAME
+
+      # 6️⃣ 部署到 gh-pages
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v5
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
