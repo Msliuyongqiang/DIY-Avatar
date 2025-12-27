@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
+  base: '/DIY-Avatar/', // ✅ 关键：设置项目 URL 子目录
   plugins: [
     vue(),
     ...(mode === 'prerelease'
