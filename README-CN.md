@@ -7,13 +7,13 @@
 
 </div>
 
-<a href="https://vue-color-avatar.leoku.dev">
+<a href="https://Msliuyongqiang.github.io/DIY-Avatar">
   <img src="./images/social-preview-1.png" alt="website-cover" />
 </a>
 
 ## 在线预览
 
-[`https://vue-color-avatar.leoku.dev`](https://vue-color-avatar.leoku.dev)
+[`https://Msliuyongqiang.github.io/DIY-Avatar`](https://Msliuyongqiang.github.io/DIY-Avatar)
 
 ## 介绍
 
